@@ -1,0 +1,12 @@
+# Archivos y directorios a ignorar durante la construcción de Docker
+.git
+.gitignore
+README.md
+LICENSE.md
+node_modules
+.env
+.env.local
+.env.production
+.DS_Store
+Thumbs.db
+*.log
