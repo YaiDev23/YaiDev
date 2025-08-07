@@ -1,11 +1,19 @@
 # Usar nginx como servidor web para servir archivos estáticos
 FROM nginx:alpine
 
-# Copiar archivos del proyecto al directorio de nginx
-COPY . /usr/share/nginx/html
+# Crear directorio de trabajo
+WORKDIR /usr/share/nginx/html
 
-# Copiar configuración personalizada de nginx
+# Copiar configuración personalizada de nginx primero
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copiar archivos HTML, CSS y JS
+COPY index.html .
+COPY style.css .
+COPY script.js .
+
+# Copiar directorio de assets
+COPY assets/ ./assets/
 
 # Exponer el puerto 80
 EXPOSE 80
